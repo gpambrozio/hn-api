@@ -124,7 +124,10 @@ class HackerNewsAPI:
 		"""
 		scoreStart = source.find('>', source.find('>')+1) + 1
 		scoreEnd = source.find(' ', scoreStart)
-		return int(source[scoreStart:scoreEnd])
+		try:
+			return int(source[scoreStart:scoreEnd])
+		except ValueError:
+			return -1
 		
 	def getSubmitter(self, source):
 		"""
